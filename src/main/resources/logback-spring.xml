@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                %magenta(%d{ISO8601}) %highlight(%-5level) [%green(%t)] [%red(CID - %X{correlationId})] %yellow(%class{10}): %msg%n%throwable
+            </pattern>
+        </encoder>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="Console" />
+    </root>
+
+    <logger level="trace" name="springsandbox-tracer" additivity="false">
+        <appender-ref ref="Console" />
+    </logger>
+
+</configuration>
